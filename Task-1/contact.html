@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Flowly</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" class="logo">⚡ Flowly</a>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta">Get Started</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <span class="badge">📬 We'd love to hear from you</span>
+        <h1>Get in <span class="gradient-text">touch</span></h1>
+        <p>Have a question or want to see a demo? We'll get back to you within 24 hours.</p>
+      </section>
+
+      <section class="contact-section">
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h3>Contact info</h3>
+            <div class="info-item">
+              <span class="icon">📧</span>
+              <div>
+                <strong>Email</strong>
+                <p>hello@flowly.io</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="icon">💬</span>
+              <div>
+                <strong>Live Chat</strong>
+                <p>Available Mon–Fri, 9am–6pm EST</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="icon">🏢</span>
+              <div>
+                <strong>Office</strong>
+                <p>123 Startup Lane, San Francisco, CA</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="you@company.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject">
+                <option value="">Select a topic</option>
+                <option>General inquiry</option>
+                <option>Sales & pricing</option>
+                <option>Technical support</option>
+                <option>Partnership</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message →</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Flowly, Inc. · All rights reserved.</p>
+    </footer>
+
+    <script>
+      function handleSubmit(e) {
+        e.preventDefault();
+        alert('✅ Message sent! We\'ll get back to you within 24 hours.');
+        e.target.reset();
+      }
+    </script>
+  </body>
+</html>
