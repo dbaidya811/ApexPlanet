@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — Flowly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar">
+        <span class="logo">⚡ Flowly</span>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Get in Touch</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <section class="hero" id="home">
+        <h1>We'd love to <span class="gradient-text">hear from you.</span></h1>
+        <p>Have a question, idea, or just want to say hi? Fill out the form and we'll get back to you within 24 hours.</p>
+      </section>
+
+      <section class="contact-section" id="contact">
+
+        <div class="info-card">
+          <h2>Contact Information</h2>
+          <p>Reach out through the form or use any of the details below.</p>
+          <ul class="contact-details">
+            <li>
+              <span class="detail-icon">📧</span>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:hello@flowly.io">hello@flowly.io</a>
+              </div>
+            </li>
+            <li>
+              <span class="detail-icon">📞</span>
+              <div>
+                <strong>Phone</strong>
+                <span>+1 (555) 000-1234</span>
+              </div>
+            </li>
+            <li>
+              <span class="detail-icon">📍</span>
+              <div>
+                <strong>Office</strong>
+                <span>123 Startup Ave, San Francisco, CA</span>
+              </div>
+            </li>
+          </ul>
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h2>Send a Message</h2>
+          <form id="contact-form" novalidate>
+
+            <div class="form-group">
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" placeholder="John Doe" autocomplete="name" />
+              <span class="error-msg" id="name-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" autocomplete="email" />
+              <span class="error-msg" id="email-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="Write your message here..."></textarea>
+              <span class="error-msg" id="message-error"></span>
+            </div>
+
+            <button type="submit" id="submit-btn">Send Message →</button>
+            <div class="success-msg" id="success-msg" aria-live="polite"></div>
+
+          </form>
+        </div>
+
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Flowly, Inc. · All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

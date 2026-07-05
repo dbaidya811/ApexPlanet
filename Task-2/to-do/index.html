@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <div class="card">
+
+      <div class="card-header">
+        <h1>My Tasks</h1>
+        <span id="task-count" class="task-count">0 tasks</span>
+      </div>
+
+      <div class="input-row">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Add a new task..."
+          maxlength="120"
+          autocomplete="off"
+        />
+        <button id="add-btn">Add Task</button>
+      </div>
+      <span class="error-msg" id="error-msg"></span>
+
+      <ul id="task-list"></ul>
+
+      <div class="empty-state" id="empty-state">
+        <span>📋</span>
+        <p>No tasks yet. Add one above!</p>
+      </div>
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ShopZone — Premium E-commerce Store" />
+    <title>ShopZone — Premium Store</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <header id="navbar">
+      <nav class="nav-container">
+        <a href="#" class="nav-logo">🛍️ ShopZone</a>
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#features">Features</a></li>
+        </ul>
+        <button class="cart-toggle" id="cart-toggle" aria-label="Open cart">
+          🛒 Cart
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+      </div>
+      <div class="cart-body" id="cart-body">
+        <div class="cart-empty" id="cart-empty">
+          <span>🛒</span>
+          <p>Your cart is empty</p>
+          <small>Add some products to get started!</small>
+        </div>
+        <ul class="cart-list" id="cart-list"></ul>
+      </div>
+      <div class="cart-footer" id="cart-footer">
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span id="shipping-cost">Free</span>
+          </div>
+          <div class="summary-row total-row">
+            <strong>Total</strong>
+            <strong id="cart-total">$0.00</strong>
+          </div>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">Checkout →</button>
+        <button class="clear-cart-btn" id="clear-cart-btn">Clear Cart</button>
+      </div>
+    </aside>
+
+    <main>
+
+      <section class="hero-section" id="hero">
+        <div class="hero-content">
+          <span class="hero-badge">🔥 New Arrivals Just Dropped</span>
+          <h1>Shop the <span class="gradient-text">Latest Trends</span></h1>
+          <p>Discover premium products at unbeatable prices. Free shipping on orders over $50.</p>
+          <div class="hero-actions">
+            <a href="#products" class="btn-primary">Shop Now →</a>
+            <a href="#features" class="btn-outline">Learn More</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>10K+</strong><span>Products</span></div>
+            <div class="stat"><strong>50K+</strong><span>Customers</span></div>
+            <div class="stat"><strong>4.9★</strong><span>Rating</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img
+            src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=520&h=420&fit=crop"
+            alt="Hero shopping banner"
+            loading="eager"
+          />
+        </div>
+      </section>
+
+      <section class="products-section" id="products">
+        <div class="section-header">
+          <span class="section-tag">Our Products</span>
+          <h2>Featured <span class="gradient-text">Collection</span></h2>
+          <p class="section-sub">Handpicked products just for you</p>
+        </div>
+
+        <div class="product-controls">
+          <div class="filter-group" id="filter-group">
+            <button class="filter-btn active" data-cat="all">All</button>
+            <button class="filter-btn" data-cat="Electronics">Electronics</button>
+            <button class="filter-btn" data-cat="Clothing">Clothing</button>
+            <button class="filter-btn" data-cat="Shoes">Shoes</button>
+            <button class="filter-btn" data-cat="Accessories">Accessories</button>
+          </div>
+          <select id="sort-select" aria-label="Sort products">
+            <option value="default">Sort: Default</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="rating-desc">Top Rated</option>
+          </select>
+        </div>
+
+        <p class="result-count" id="result-count"></p>
+        <div class="product-grid" id="product-grid"></div>
+        <div class="no-results" id="no-results">
+          <span>🔍</span>
+          <p>No products found for this filter.</p>
+        </div>
+      </section>
+
+      <section class="features-section" id="features">
+        <div class="features-grid">
+          <div class="feature-card">
+            <span>🚚</span>
+            <h3>Free Shipping</h3>
+            <p>On all orders over $50. Fast and reliable delivery worldwide.</p>
+          </div>
+          <div class="feature-card">
+            <span>🔄</span>
+            <h3>Easy Returns</h3>
+            <p>30-day hassle-free return policy. No questions asked.</p>
+          </div>
+          <div class="feature-card">
+            <span>🔒</span>
+            <h3>Secure Payment</h3>
+            <p>Your payment info is always encrypted and protected.</p>
+          </div>
+          <div class="feature-card">
+            <span>💬</span>
+            <h3>24/7 Support</h3>
+            <p>Our team is always here to help you with any questions.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span class="nav-logo">🛍️ ShopZone</span>
+        <p>© 2026 ShopZone · Built by Deep Baidya · ApexPlanet Internship Task-5</p>
+        <a href="#hero" class="back-top">↑ Top</a>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

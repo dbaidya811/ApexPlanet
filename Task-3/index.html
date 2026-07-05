@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-3 Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar">
+        <span class="logo">⚡ DevDash</span>
+        <ul class="nav-links">
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#jokes">Jokes</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="dashboard">
+
+      <section class="quiz-section" id="quiz">
+        <div class="section-label">🧠 Quiz Challenge</div>
+
+        <div id="quiz-screen">
+          <div class="quiz-meta">
+            <span id="question-tracker">Question 1 / 5</span>
+            <span id="score-tracker">Score: 0</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <h2 id="question-text">Loading question...</h2>
+          <ul class="options-list" id="options-list"></ul>
+          <button class="btn-primary" id="next-btn" disabled>Next →</button>
+        </div>
+
+        <div id="result-screen" class="hidden">
+          <div class="result-icon" id="result-icon">🎉</div>
+          <h2 id="result-title">Quiz Complete!</h2>
+          <p id="result-score"></p>
+          <p id="result-msg"></p>
+          <button class="btn-primary" id="restart-btn">Restart Quiz</button>
+        </div>
+      </section>
+
+      <section class="joke-section" id="jokes">
+        <div class="section-label">😂 Random Jokes</div>
+
+        <div class="joke-card" id="joke-card">
+          <div class="spinner hidden" id="spinner"></div>
+          <div id="joke-content">
+            <p id="joke-setup"></p>
+            <p id="joke-punchline" class="punchline hidden"></p>
+          </div>
+          <div class="joke-error hidden" id="joke-error">
+            <span>⚠️</span>
+            <p>Could not load joke. Check your connection.</p>
+          </div>
+        </div>
+
+        <div class="joke-actions">
+          <button class="btn-primary" id="joke-btn">Get New Joke 🎲</button>
+          <button class="btn-ghost" id="reveal-btn" disabled>Reveal Punchline</button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© 2026 DevDash · Task-3 Advanced JS</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

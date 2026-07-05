@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar">
+        <span class="logo">🛍️ ShopZone</span>
+        <span class="nav-tagline">Premium Products, Best Prices</span>
+      </nav>
+    </header>
+
+    <main class="page-layout">
+
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <h3>Filter by Category</h3>
+          <div class="category-filters" id="category-filters">
+            <button class="cat-btn active" data-category="all">All</button>
+            <button class="cat-btn" data-category="Electronics">Electronics</button>
+            <button class="cat-btn" data-category="Clothing">Clothing</button>
+            <button class="cat-btn" data-category="Shoes">Shoes</button>
+            <button class="cat-btn" data-category="Accessories">Accessories</button>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Filter by Price</h3>
+          <div class="price-filters">
+            <label class="price-label">
+              <input type="radio" name="price" value="all" checked /> All Prices
+            </label>
+            <label class="price-label">
+              <input type="radio" name="price" value="0-50" /> Under $50
+            </label>
+            <label class="price-label">
+              <input type="radio" name="price" value="50-100" /> $50 – $100
+            </label>
+            <label class="price-label">
+              <input type="radio" name="price" value="100-999" /> Above $100
+            </label>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Minimum Rating</h3>
+          <div class="rating-filters">
+            <label class="price-label"><input type="radio" name="rating" value="0" checked /> All Ratings</label>
+            <label class="price-label"><input type="radio" name="rating" value="4" /> ⭐ 4 & above</label>
+            <label class="price-label"><input type="radio" name="rating" value="4.5" /> ⭐ 4.5 & above</label>
+          </div>
+        </div>
+      </aside>
+
+      <section class="content">
+
+        <div class="toolbar">
+          <p class="result-count" id="result-count">Showing 0 products</p>
+          <div class="toolbar-right">
+            <select id="sort-select">
+              <option value="default">Sort: Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating-desc">Rating: Highest First</option>
+              <option value="name-asc">Name: A – Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid" id="product-grid"></div>
+
+        <div class="empty-state" id="empty-state">
+          <span>🔍</span>
+          <p>No products match your filters.</p>
+          <button id="reset-btn">Reset Filters</button>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© 2026 ShopZone · Built with ❤️ by Deep Baidya</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

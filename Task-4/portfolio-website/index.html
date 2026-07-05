@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deep Baidya — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <header id="navbar">
+      <nav class="nav-container">
+        <a href="#home" class="nav-logo">DB<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="#home" class="mobile-link">Home</a></li>
+          <li><a href="#about" class="mobile-link">About</a></li>
+          <li><a href="#projects" class="mobile-link">Projects</a></li>
+          <li><a href="#contact" class="mobile-link">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+
+      <section id="home" class="hero-section">
+        <div class="hero-content">
+          <span class="hero-badge">👋 Available for work</span>
+          <h1>Hi, I'm <span class="gradient-text">Deep Baidya</span></h1>
+          <p class="hero-role"><span class="code-tag">&lt;</span>Frontend Developer<span class="code-tag">/&gt;</span></p>
+          <p class="hero-bio">I craft clean, accessible, and visually delightful web experiences. Passionate about turning ideas into pixel-perfect interfaces.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="#contact" class="btn-outline">Get In Touch</a>
+          </div>
+          <div class="hero-socials">
+            <a href="https://github.com" target="_blank" rel="noopener" class="social-link">GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" class="social-link">Twitter</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="avatar-ring">
+            <img src="https://placehold.co/300x300/6366f1/ffffff?text=DB" alt="Deep Baidya profile photo" />
+          </div>
+          <div class="floating-card card-1">
+            <span>⚡</span> React Developer
+          </div>
+          <div class="floating-card card-2">
+            <span>🎨</span> UI Designer
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="section-header">
+          <span class="section-tag">About Me</span>
+          <h2>A little bit <span class="gradient-text">about myself</span></h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>I'm a frontend developer with a strong eye for design and a love for clean code. I specialize in building responsive, accessible web applications using modern technologies.</p>
+            <p>Currently pursuing my internship at ApexPlanet, where I'm building real-world projects that sharpen my skills in HTML, CSS, JavaScript, and beyond.</p>
+            <p>When I'm not coding, you'll find me exploring design systems, reading about web performance, or hiking in the mountains.</p>
+            <a href="#contact" class="btn-primary" style="margin-top:1.5rem; display:inline-block;">Let's Work Together</a>
+          </div>
+          <div class="about-right">
+            <div class="skills-box">
+              <h3>Tech Stack</h3>
+              <div class="skills-grid">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Flexbox</span>
+                <span class="skill-tag">CSS Grid</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">Responsive Design</span>
+              </div>
+            </div>
+            <div class="stats-row">
+              <div class="stat-card">
+                <strong>4+</strong>
+                <span>Projects</span>
+              </div>
+              <div class="stat-card">
+                <strong>3+</strong>
+                <span>Months Exp.</span>
+              </div>
+              <div class="stat-card">
+                <strong>100%</strong>
+                <span>Dedication</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects-section">
+        <div class="section-header">
+          <span class="section-tag">My Work</span>
+          <h2>Internship <span class="gradient-text">Projects</span></h2>
+          <p class="section-sub">A collection of tasks built during my ApexPlanet internship.</p>
+        </div>
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="project-img">
+              <img src="https://placehold.co/400x220/eef2ff/6366f1?text=Task+1" alt="Task 1 preview" />
+              <div class="project-overlay">
+                <a href="../Task-1/index.html" class="overlay-btn">Live Demo →</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <h3>Task 1 — Web Basics</h3>
+              <p>A landing page demonstrating semantic HTML5 structure, modern CSS styling, and basic JavaScript interactivity.</p>
+              <a href="../Task-1/index.html" class="project-link">View Project →</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img">
+              <img src="https://placehold.co/400x220/eef2ff/6366f1?text=Task+2A" alt="Task 2 Contact Form preview" />
+              <div class="project-overlay">
+                <a href="../Task-2/contact-form/index.html" class="overlay-btn">Live Demo →</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>HTML</span><span>CSS Grid</span><span>JS Validation</span>
+              </div>
+              <h3>Task 2A — Contact Form</h3>
+              <p>A responsive contact form with real-time JavaScript validation, Flexbox nav, and CSS Grid layout.</p>
+              <a href="../Task-2/contact-form/index.html" class="project-link">View Project →</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img">
+              <img src="https://placehold.co/400x220/eef2ff/6366f1?text=Task+2B" alt="Task 2 To-Do preview" />
+              <div class="project-overlay">
+                <a href="../Task-2/to-do/index.html" class="overlay-btn">Live Demo →</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>DOM Manipulation</span>
+              </div>
+              <h3>Task 2B — To-Do List</h3>
+              <p>A dynamic to-do app with add, delete, and complete features built using vanilla JavaScript DOM manipulation.</p>
+              <a href="../Task-2/to-do/index.html" class="project-link">View Project →</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img">
+              <img src="https://placehold.co/400x220/eef2ff/6366f1?text=Task+3" alt="Task 3 preview" />
+              <div class="project-overlay">
+                <a href="../Task-3/index.html" class="overlay-btn">Live Demo →</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>Fetch API</span><span>Quiz App</span><span>Async/Await</span>
+              </div>
+              <h3>Task 3 — Advanced JS Dashboard</h3>
+              <p>A dashboard featuring an interactive quiz app and live joke API fetching with loading states and error handling.</p>
+              <a href="../Task-3/index.html" class="project-link">View Project →</a>
+            </div>
+          </div>
+
+          <div class="project-card coming-soon">
+            <div class="project-img placeholder-img">
+              <span>🚀</span>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>Coming Soon</span>
+              </div>
+              <h3>Task 5 — Coming Soon</h3>
+              <p>Next internship project will be linked here once completed.</p>
+            </div>
+          </div>
+
+          <div class="project-card coming-soon">
+            <div class="project-img placeholder-img">
+              <span>⚙️</span>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>Coming Soon</span>
+              </div>
+              <h3>Task 6 — Coming Soon</h3>
+              <p>Next internship project will be linked here once completed.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="section-header">
+          <span class="section-tag">Contact</span>
+          <h2>Let's <span class="gradient-text">work together</span></h2>
+          <p class="section-sub">Have a project in mind or just want to say hi? My inbox is always open.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:alex@example.com">alex@example.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>Location</strong>
+                <span>San Francisco, CA</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">💼</span>
+              <div>
+                <strong>Status</strong>
+                <span class="status-badge">Open to opportunities</span>
+              </div>
+            </div>
+            <div class="contact-socials">
+              <a href="https://github.com" target="_blank" rel="noopener" class="social-pill">GitHub</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill">LinkedIn</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener" class="social-pill">Twitter</a>
+            </div>
+          </div>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-name">Name</label>
+                <input type="text" id="c-name" placeholder="John Doe" />
+              </div>
+              <div class="form-group">
+                <label for="c-email">Email</label>
+                <input type="email" id="c-email" placeholder="john@example.com" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-subject">Subject</label>
+              <input type="text" id="c-subject" placeholder="Project inquiry..." />
+            </div>
+            <div class="form-group">
+              <label for="c-message">Message</label>
+              <textarea id="c-message" rows="5" placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary full-width">Send Message →</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span class="nav-logo">DB<span>.</span></span>
+        <p>© 2026 Deep Baidya. Built with ❤️ during ApexPlanet Internship.</p>
+        <a href="#home" class="back-top">↑ Back to top</a>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        });
+      });
+      window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+      });
+      document.getElementById('contact-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        btn.textContent = '✅ Message Sent!';
+        btn.disabled = true;
+        setTimeout(() => { btn.textContent = 'Send Message →'; btn.disabled = false; e.target.reset(); }, 3000);
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced To-Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+      <div class="card">
+
+        <div class="card-header">
+          <div>
+            <h1>My Tasks</h1>
+            <p class="subtitle">Saved automatically to your browser</p>
+          </div>
+          <div class="header-right">
+            <span class="count-badge" id="count-badge">0 tasks</span>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="Add a new task..."
+            maxlength="120"
+            autocomplete="off"
+          />
+          <button id="add-btn">Add Task</button>
+        </div>
+        <span class="error-msg" id="error-msg"></span>
+
+        <div class="filter-row">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <ul id="task-list"></ul>
+
+        <div class="empty-state" id="empty-state">
+          <span>📋</span>
+          <p>No tasks here. Add one above!</p>
+        </div>
+
+        <div class="card-footer" id="card-footer">
+          <span id="remaining-count">0 left</span>
+          <button id="clear-btn">Clear Completed</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
