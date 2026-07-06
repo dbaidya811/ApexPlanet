@@ -1,8 +1,4 @@
-/* ─────────────────────────────────────────
-   PRODUCT DATA
-   Hardcoded array of product objects.
-   In a real app this would come from an API.
-───────────────────────────────────────── */
+
 const products = [
   {
     id: 1,
@@ -86,19 +82,12 @@ const products = [
   }
 ];
 
-/* ─────────────────────────────────────────
-   STATE
-   Single source of truth for the app.
-───────────────────────────────────────── */
+
 let cart          = [];
 let activeFilter  = 'all';
 let activeSort    = 'default';
 
-/* ─────────────────────────────────────────
-   DOM REFERENCES
-   Cached once at startup — avoids repeated
-   querySelector calls (performance win).
-───────────────────────────────────────── */
+
 const productGrid   = document.getElementById('product-grid');
 const resultCount   = document.getElementById('result-count');
 const noResults     = document.getElementById('no-results');
@@ -115,11 +104,7 @@ const toastEl       = document.getElementById('toast');
 const filterBtns    = document.querySelectorAll('.filter-btn');
 const sortSelect    = document.getElementById('sort-select');
 
-/* ─────────────────────────────────────────
-   HELPERS
-───────────────────────────────────────── */
 
-/* Generates star string from a numeric rating */
 function getStars(rating) {
   const full  = Math.floor(rating);
   const half  = rating % 1 >= 0.5 ? '½' : '';
@@ -127,33 +112,25 @@ function getStars(rating) {
   return '★'.repeat(full) + half + '☆'.repeat(empty);
 }
 
-/* Formats a number as USD currency string */
+
 function formatPrice(amount) {
   return `$${amount.toFixed(2)}`;
 }
 
-/* Shows a brief toast notification at the bottom of the screen */
 function showToast(message) {
   toastEl.textContent = message;
   toastEl.classList.add('show');
-  /* Performance: setTimeout is non-blocking — does not freeze the UI */
   setTimeout(() => toastEl.classList.remove('show'), 2500);
 }
 
-/* Animates the cart badge with a "bump" scale effect */
 function bumpBadge() {
   cartBadge.classList.remove('bump');
-  /* Force reflow so the animation restarts even if already active */
   void cartBadge.offsetWidth;
   cartBadge.classList.add('bump');
   setTimeout(() => cartBadge.classList.remove('bump'), 300);
 }
 
-/* ─────────────────────────────────────────
-   PRODUCT RENDERING
-───────────────────────────────────────── */
 
-/* Filters and sorts the products array based on current state */
 function getVisibleProducts() {
   let list = activeFilter === 'all'
     ? [...products]
@@ -166,11 +143,7 @@ function getVisibleProducts() {
   return list;
 }
 
-/*
-  Renders the product grid.
-  Performance: Uses innerHTML batch update instead of appending
-  one element at a time — reduces DOM reflows to a single pass.
-*/
+
 function renderProducts() {
   const list = getVisibleProducts();
 
@@ -184,7 +157,6 @@ function renderProducts() {
 
   noResults.style.display = 'none';
 
-  /* Build all card HTML as one string, then set innerHTML once */
   const html = list.map((p, index) => {
     const inCart = cart.some(item => item.id === p.id);
     return `
@@ -207,12 +179,16 @@ function renderProducts() {
             </span>
             <span class="product-price">${formatPrice(p.price)}</span>
           </div>
-          <button
-            class="add-to-cart-btn ${inCart ? 'in-cart' : ''}"
-            data-id="${p.id}"
-          >
-            ${inCart ? '✓ In Cart' : 'Add to Cart'}
-          </button>
+          <div style="display:flex;gap:0.5rem;">
+            <button
+              class="add-to-cart-btn ${inCart ? 'in-cart' : ''}"
+              data-id="${p.id}"
+              style="flex:1"
+            >
+              ${inCart ? '✓ In Cart' : 'Add to Cart'}
+            </button>
+            <a href="product-detail.html?id=${p.id}" style="display:flex;align-items:center;padding:0 0.8rem;border:1.5px solid var(--border);border-radius:8px;font-size:0.8rem;font-weight:700;color:var(--accent);text-decoration:none;white-space:nowrap;transition:all 0.25s ease;" onmouseover="this.style.background='var(--accent-soft)'" onmouseout="this.style.background=''">View</a>
+          </div>
         </div>
       </div>
     `;
@@ -220,17 +196,12 @@ function renderProducts() {
 
   productGrid.innerHTML = html;
 
-  /* Attach click events to all "Add to Cart" buttons after render */
   productGrid.querySelectorAll('.add-to-cart-btn').forEach(btn => {
     btn.addEventListener('click', () => addToCart(Number(btn.dataset.id)));
   });
 }
 
-/* ─────────────────────────────────────────
-   CART LOGIC
-───────────────────────────────────────── */
 
-/* Adds a product to the cart or increments its quantity if already present */
 function addToCart(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
@@ -249,14 +220,12 @@ function addToCart(productId) {
   bumpBadge();
 }
 
-/* Increases the quantity of a cart item by 1 */
 function increaseQty(productId) {
   const item = cart.find(i => i.id === productId);
   if (item) item.qty += 1;
   updateCartUI();
 }
 
-/* Decreases the quantity of a cart item. Removes it if qty reaches 0 */
 function decreaseQty(productId) {
   const item = cart.find(i => i.id === productId);
   if (!item) return;
@@ -271,34 +240,27 @@ function decreaseQty(productId) {
   updateCartUI();
 }
 
-/* Removes a product completely from the cart */
 function removeFromCart(productId) {
   cart = cart.filter(i => i.id !== productId);
   updateCartUI();
   renderProducts();
 }
 
-/* Clears all items from the cart */
 function clearCart() {
   cart = [];
   updateCartUI();
   renderProducts();
 }
 
-/*
-  Re-renders the cart drawer UI and recalculates totals.
-  Called after every cart state change.
-*/
+
 function updateCartUI() {
   const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
   const subtotal   = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
   const shipping   = subtotal > 0 && subtotal < 50 ? 5.99 : 0;
   const total      = subtotal + shipping;
 
-  /* Update badge count */
   cartBadge.textContent = totalItems;
 
-  /* Show/hide empty state and footer */
   if (cart.length === 0) {
     cartEmpty.style.display  = 'flex';
     cartList.style.display   = 'none';
@@ -309,12 +271,10 @@ function updateCartUI() {
     cartFooter.style.display = 'block';
   }
 
-  /* Update price summary */
   subtotalEl.textContent  = formatPrice(subtotal);
   shippingEl.textContent  = shipping === 0 ? 'Free' : formatPrice(shipping);
   cartTotalEl.textContent = formatPrice(total);
 
-  /* Render cart items */
   cartList.innerHTML = cart.map(item => `
     <li class="cart-item" data-id="${item.id}">
       <img
@@ -340,7 +300,6 @@ function updateCartUI() {
     </li>
   `).join('');
 
-  /* Attach events to quantity and remove buttons */
   cartList.querySelectorAll('.qty-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = Number(btn.dataset.id);
@@ -353,14 +312,9 @@ function updateCartUI() {
   });
 }
 
-/* ─────────────────────────────────────────
-   CART DRAWER OPEN / CLOSE
-───────────────────────────────────────── */
-
 function openCart() {
   cartDrawer.classList.add('open');
   cartOverlay.classList.add('open');
-  /* Prevent body scroll while cart is open */
   document.body.style.overflow = 'hidden';
 }
 
@@ -370,9 +324,7 @@ function closeCart() {
   document.body.style.overflow = '';
 }
 
-/* ─────────────────────────────────────────
-   EVENT LISTENERS
-───────────────────────────────────────── */
+
 
 document.getElementById('cart-toggle').addEventListener('click', openCart);
 document.getElementById('cart-close').addEventListener('click', closeCart);
@@ -387,7 +339,7 @@ document.getElementById('checkout-btn').addEventListener('click', () => {
   closeCart();
 });
 
-/* Filter buttons */
+
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
@@ -397,25 +349,20 @@ filterBtns.forEach(btn => {
   });
 });
 
-/* Sort dropdown */
+
 sortSelect.addEventListener('change', () => {
   activeSort = sortSelect.value;
   renderProducts();
 });
 
-/* Navbar scroll shadow */
+
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true }); /* Performance: passive listener never blocks scroll */
-
-/* Close cart on Escape key — accessibility */
+}, { passive: true }); 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeCart();
 });
 
-/* ─────────────────────────────────────────
-   INIT
-   Render products on first page load.
-───────────────────────────────────────── */
+
 renderProducts();
 updateCartUI();

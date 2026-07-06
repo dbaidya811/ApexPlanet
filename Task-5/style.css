@@ -685,10 +685,10 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: 1rem;
+  text-align: center;
 }
 
 .footer-inner p { color: var(--muted); font-size: 0.82rem; }

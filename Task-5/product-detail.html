@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail — ShopZone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .detail-page { max-width: 1000px; margin: 3rem auto; padding: 0 2rem; }
+      .breadcrumb { font-size: 0.82rem; color: var(--muted); margin-bottom: 2rem; }
+      .breadcrumb a { color: var(--accent); text-decoration: none; font-weight: 600; }
+      .breadcrumb a:hover { text-decoration: underline; }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      .detail-img {
+        width: 100%;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-md);
+        object-fit: cover;
+        aspect-ratio: 4/3;
+      }
+
+      .detail-info { display: flex; flex-direction: column; gap: 1.2rem; }
+      .detail-cat {
+        display: inline-block;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.3rem 0.9rem;
+        border-radius: 50px;
+        width: fit-content;
+      }
+      .detail-name { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.2; }
+      .detail-rating { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--muted); font-weight: 600; }
+      .detail-rating .stars { color: #f59e0b; font-size: 1rem; }
+      .detail-price { font-size: 2rem; font-weight: 800; color: var(--accent); }
+      .detail-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.8; }
+
+      .detail-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+      .detail-features li { font-size: 0.88rem; color: var(--muted); display: flex; align-items: center; gap: 0.5rem; }
+      .detail-features li::before { content: "✓"; color: var(--green); font-weight: 800; }
+
+      .qty-selector { display: flex; align-items: center; gap: 1rem; }
+      .qty-selector label { font-size: 0.88rem; font-weight: 700; color: var(--muted); }
+      .qty-controls { display: flex; align-items: center; gap: 0.5rem; border: 1.5px solid var(--border); border-radius: 8px; padding: 0.3rem 0.6rem; background: var(--white); }
+      .qty-controls button { background: none; border: none; font-size: 1.1rem; font-weight: 700; cursor: pointer; color: var(--accent); width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 4px; transition: background var(--transition); }
+      .qty-controls button:hover { background: var(--accent-soft); }
+      .qty-controls span { font-weight: 700; min-width: 24px; text-align: center; }
+
+      .detail-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+      .detail-actions .btn-primary { flex: 1; text-align: center; padding: 0.9rem; font-size: 1rem; }
+      .detail-actions .btn-outline { flex: 1; text-align: center; padding: 0.9rem; font-size: 1rem; }
+
+      .related-section { max-width: 1000px; margin: 3rem auto; padding: 0 2rem 4rem; }
+      .related-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem; }
+
+      @media (max-width: 640px) {
+        .detail-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header id="navbar">
+      <nav class="nav-container">
+        <a href="index.html" class="nav-logo">🛍️ ShopZone</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="checkout.html" class="cart-toggle">🛒 Checkout</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="detail-page" id="detail-page">
+        <p style="color:var(--muted);text-align:center;padding:4rem 0;">Loading product...</p>
+      </div>
+      <div class="related-section" id="related-section"></div>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <a href="index.html" class="nav-logo">🛍️ ShopZone</a>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;">
+          <a href="index.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Home</a>
+          <a href="products.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Products</a>
+          <a href="about.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">About</a>
+          <a href="contact.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Contact</a>
+          <a href="checkout.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Checkout</a>
+        </div>
+        <p>© 2026 ShopZone · Built by Deep Baidya</p>
+        <a href="#" class="back-top">↑ Top</a>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      const products = [
+        { id: 1, name: "Wireless Noise-Cancelling Headphones", category: "Electronics", price: 89.99, rating: 4.7, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=450&fit=crop", desc: "Experience crystal-clear audio with industry-leading noise cancellation. Perfect for travel, work, and everyday listening.", features: ["40-hour battery life", "Bluetooth 5.0", "Foldable design", "Built-in microphone"] },
+        { id: 2, name: "Slim Fit Cotton T-Shirt", category: "Clothing", price: 24.99, rating: 4.3, image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=450&fit=crop", desc: "Premium 100% cotton slim-fit t-shirt. Soft, breathable, and perfect for everyday wear.", features: ["100% organic cotton", "Machine washable", "Available in 8 colors", "Slim fit cut"] },
+        { id: 3, name: "Running Sneakers Pro", category: "Shoes", price: 119.99, rating: 4.8, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=450&fit=crop", desc: "High-performance running shoes with advanced cushioning technology for maximum comfort on every run.", features: ["Air cushion sole", "Breathable mesh upper", "Anti-slip grip", "Lightweight 280g"] },
+        { id: 4, name: "Leather Minimalist Wallet", category: "Accessories", price: 34.99, rating: 4.5, image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&h=450&fit=crop", desc: "Slim genuine leather wallet with RFID blocking technology. Holds up to 8 cards and cash.", features: ["Genuine leather", "RFID blocking", "Holds 8 cards", "Ultra-slim 6mm"] },
+        { id: 5, name: "4K Ultra HD Smart TV 43\"", category: "Electronics", price: 349.99, rating: 4.6, image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829e1?w=600&h=450&fit=crop", desc: "Stunning 4K display with smart OS, built-in streaming apps, and Dolby Audio for an immersive experience.", features: ["4K UHD resolution", "Smart OS built-in", "Dolby Audio", "3x HDMI ports"] },
+        { id: 6, name: "Classic Denim Jacket", category: "Clothing", price: 64.99, rating: 4.2, image: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=600&h=450&fit=crop", desc: "Timeless denim jacket crafted from premium denim. A wardrobe essential for every season.", features: ["Premium denim fabric", "Button-front closure", "Two chest pockets", "Unisex fit"] },
+        { id: 7, name: "Casual Canvas Loafers", category: "Shoes", price: 49.99, rating: 4.1, image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=450&fit=crop", desc: "Comfortable canvas loafers perfect for casual outings. Lightweight and easy to slip on.", features: ["Canvas upper", "Rubber sole", "Slip-on design", "Cushioned insole"] },
+        { id: 8, name: "Stainless Steel Watch", category: "Accessories", price: 149.99, rating: 4.9, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=450&fit=crop", desc: "Elegant stainless steel watch with sapphire crystal glass and 50m water resistance.", features: ["Sapphire crystal glass", "50m water resistant", "Japanese quartz movement", "2-year warranty"] },
+        { id: 9, name: "Bluetooth Mechanical Keyboard", category: "Electronics", price: 79.99, rating: 4.4, image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&h=450&fit=crop", desc: "Tactile mechanical keyboard with Bluetooth 5.0. Connect up to 3 devices simultaneously.", features: ["Blue switch keys", "Bluetooth 5.0", "3-device pairing", "RGB backlight"] },
+        { id: 10, name: "Floral Summer Dress", category: "Clothing", price: 39.99, rating: 4.6, image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=450&fit=crop", desc: "Light and breezy floral dress perfect for summer days. Made from soft chiffon fabric.", features: ["Chiffon fabric", "Floral print", "V-neck design", "Available in 3 prints"] },
+        { id: 11, name: "Portable Bluetooth Speaker", category: "Electronics", price: 59.99, rating: 4.5, image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&h=450&fit=crop", desc: "360° surround sound speaker with IPX7 waterproof rating. Perfect for outdoor adventures.", features: ["IPX7 waterproof", "12-hour battery", "360° sound", "USB-C charging"] },
+        { id: 12, name: "Leather Ankle Boots", category: "Shoes", price: 89.99, rating: 4.3, image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&h=450&fit=crop", desc: "Stylish genuine leather ankle boots with a comfortable block heel. Perfect for any occasion.", features: ["Genuine leather", "Block heel 3cm", "Side zip closure", "Cushioned footbed"] },
+        { id: 13, name: "Polarized Sunglasses", category: "Accessories", price: 44.99, rating: 4.4, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&h=450&fit=crop", desc: "UV400 polarized sunglasses with lightweight titanium frame. Protects your eyes in style.", features: ["UV400 protection", "Polarized lenses", "Titanium frame", "Includes hard case"] },
+        { id: 14, name: "Hooded Zip-Up Sweatshirt", category: "Clothing", price: 54.99, rating: 4.2, image: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&h=450&fit=crop", desc: "Cozy fleece-lined hoodie with a full zip. Perfect for cool evenings and casual wear.", features: ["Fleece-lined interior", "Full zip closure", "Kangaroo pocket", "Adjustable drawstring"] },
+        { id: 15, name: "Smart Fitness Tracker", category: "Electronics", price: 69.99, rating: 4.6, image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=600&h=450&fit=crop", desc: "Track your health 24/7 with heart rate, sleep, SpO2, and 20+ workout modes.", features: ["Heart rate monitor", "SpO2 tracking", "7-day battery", "Water resistant 5ATM"] },
+      ];
+
+      let qty = 1;
+
+      function getStars(r) { return '★'.repeat(Math.floor(r)) + (r%1>=0.5?'½':'') + '☆'.repeat(5-Math.floor(r)-(r%1>=0.5?1:0)); }
+      function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg; t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2500);
+      }
+
+      function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem('shopzone_cart') || '[]');
+        const ex = cart.find(i => i.id === product.id);
+        if (ex) ex.qty += qty; else cart.push({...product, qty});
+        localStorage.setItem('shopzone_cart', JSON.stringify(cart));
+        showToast(`🛒 ${qty}x "${product.name}" added to cart!`);
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const id = Number(params.get('id')) || 1;
+      const product = products.find(p => p.id === id);
+
+      if (product) {
+        document.title = `${product.name} — ShopZone`;
+        document.getElementById('detail-page').innerHTML = `
+          <div class="breadcrumb">
+            <a href="index.html">Home</a> › <a href="products.html">Products</a> › ${product.name}
+          </div>
+          <div class="detail-grid">
+            <img class="detail-img" src="${product.image}" alt="${product.name}" />
+            <div class="detail-info">
+              <span class="detail-cat">${product.category}</span>
+              <h1 class="detail-name">${product.name}</h1>
+              <div class="detail-rating">
+                <span class="stars">${getStars(product.rating)}</span>
+                <span>${product.rating} / 5.0</span>
+              </div>
+              <div class="detail-price">$${product.price.toFixed(2)}</div>
+              <p class="detail-desc">${product.desc}</p>
+              <ul class="detail-features">
+                ${product.features.map(f => `<li>${f}</li>`).join('')}
+              </ul>
+              <div class="qty-selector">
+                <label>Quantity:</label>
+                <div class="qty-controls">
+                  <button onclick="if(qty>1){qty--;document.getElementById('qty-val').textContent=qty;}">−</button>
+                  <span id="qty-val">1</span>
+                  <button onclick="qty++;document.getElementById('qty-val').textContent=qty;">+</button>
+                </div>
+              </div>
+              <div class="detail-actions">
+                <button class="btn-primary" onclick="addToCart(products.find(p=>p.id===${product.id}))">🛒 Add to Cart</button>
+                <a href="checkout.html" class="btn-outline">Buy Now →</a>
+              </div>
+            </div>
+          </div>
+        `;
+
+       
+        const related = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+        if (related.length) {
+          document.getElementById('related-section').innerHTML = `
+            <h2>Related <span class="gradient-text">Products</span></h2>
+            <div class="product-grid">
+              ${related.map((p, i) => `
+                <div class="product-card" style="animation-delay:${i*0.05}s">
+                  <div class="product-img-wrap">
+                    <img src="${p.image}" alt="${p.name}" loading="lazy" width="400" height="200" />
+                    <span class="cat-chip">${p.category}</span>
+                  </div>
+                  <div class="product-body">
+                    <p class="product-name">${p.name}</p>
+                    <div class="product-meta">
+                      <span class="product-rating"><span class="stars">${getStars(p.rating)}</span> ${p.rating}</span>
+                      <span class="product-price">$${p.price.toFixed(2)}</span>
+                    </div>
+                    <a href="product-detail.html?id=${p.id}" class="add-to-cart-btn" style="display:block;text-align:center;text-decoration:none;">View Product</a>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+      } else {
+        document.getElementById('detail-page').innerHTML = `<p style="text-align:center;padding:4rem;color:var(--muted)">Product not found. <a href="products.html" style="color:var(--accent)">Browse all products →</a></p>`;
+      }
+
+      window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+    </script>
+  </body>
+</html>

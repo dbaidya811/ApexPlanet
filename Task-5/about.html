@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — ShopZone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .about-hero {
+        background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+        color: #fff;
+        text-align: center;
+        padding: 5rem 2rem;
+      }
+      .about-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 1rem; }
+      .about-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 560px; margin: 0 auto; }
+
+      .about-section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+
+      .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 5rem; }
+      .mission-grid img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+      .mission-text h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 1rem; }
+      .mission-text p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+
+      .stats-band {
+        background: var(--accent);
+        color: #fff;
+        padding: 3rem 2rem;
+      }
+      .stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+      .stat-item strong { display: block; font-size: 2.5rem; font-weight: 800; }
+      .stat-item span { font-size: 0.9rem; opacity: 0.85; font-weight: 600; }
+
+      .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
+      .value-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.5rem; text-align: center; transition: box-shadow var(--transition), transform var(--transition); }
+      .value-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+      .value-card span { font-size: 2.2rem; display: block; margin-bottom: 0.8rem; }
+      .value-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.5rem; }
+      .value-card p { font-size: 0.85rem; color: var(--muted); }
+
+      .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+      .team-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.5rem; text-align: center; transition: box-shadow var(--transition), transform var(--transition); }
+      .team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+      .team-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; border: 3px solid var(--accent-soft); }
+      .team-card h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.3rem; }
+      .team-card p { font-size: 0.82rem; color: var(--accent); font-weight: 600; }
+      .team-card small { font-size: 0.78rem; color: var(--muted); }
+
+      .cta-band { background: var(--accent-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 2rem; text-align: center; }
+      .cta-band h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 0.8rem; }
+      .cta-band p { color: var(--muted); margin-bottom: 1.5rem; }
+
+      @media (max-width: 768px) {
+        .mission-grid { grid-template-columns: 1fr; gap: 2rem; }
+        .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 480px) {
+        .stats-inner { grid-template-columns: 1fr 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header id="navbar">
+      <nav class="nav-container">
+        <a href="index.html" class="nav-logo">🛍️ ShopZone</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html" style="color:var(--accent)">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="checkout.html" class="cart-toggle">🛒 Checkout</a>
+      </nav>
+    </header>
+
+    <div class="about-hero">
+      <h1>About ShopZone</h1>
+      <p>We're on a mission to make premium shopping accessible to everyone, everywhere.</p>
+    </div>
+
+    <main>
+      <div class="about-section">
+        <div class="mission-grid">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=420&fit=crop" alt="Our story" />
+          <div class="mission-text">
+            <span class="section-tag">Our Story</span>
+            <h2>Built with <span class="gradient-text">Passion</span> for Shopping</h2>
+            <p>ShopZone was founded in 2020 with a simple idea: everyone deserves access to premium products without the premium price tag. We started as a small team of 3 in a garage, and today we serve over 50,000 happy customers worldwide.</p>
+            <p>We carefully curate every product in our catalog, working directly with manufacturers to cut out the middleman and pass the savings on to you. Quality, affordability, and trust — that's the ShopZone promise.</p>
+            <a href="products.html" class="btn-primary">Shop Now →</a>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <span class="section-tag">Our Values</span>
+          <h2>What We <span class="gradient-text">Stand For</span></h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <span>🌟</span>
+            <h3>Quality First</h3>
+            <p>Every product is tested and verified before it reaches our shelves.</p>
+          </div>
+          <div class="value-card">
+            <span>🌍</span>
+            <h3>Sustainability</h3>
+            <p>We partner with eco-conscious brands and use recyclable packaging.</p>
+          </div>
+          <div class="value-card">
+            <span>🤝</span>
+            <h3>Customer Trust</h3>
+            <p>Transparent pricing, honest reviews, and no hidden fees. Ever.</p>
+          </div>
+          <div class="value-card">
+            <span>⚡</span>
+            <h3>Fast Delivery</h3>
+            <p>Most orders ship within 24 hours and arrive in 2–5 business days.</p>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <span class="section-tag">Meet the Team</span>
+          <h2>The People Behind <span class="gradient-text">ShopZone</span></h2>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <img class="team-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&fit=crop&crop=face" alt="Alex" />
+            <h3>Alex Johnson</h3>
+            <p>CEO & Co-Founder</p>
+            <small>10+ years in e-commerce</small>
+          </div>
+          <div class="team-card">
+            <img class="team-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=160&h=160&fit=crop&crop=face" alt="Sarah" />
+            <h3>Sarah Chen</h3>
+            <p>Head of Design</p>
+            <small>UX/UI specialist</small>
+          </div>
+          <div class="team-card">
+            <img class="team-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=160&h=160&fit=crop&crop=face" alt="Marcus" />
+            <h3>Marcus Lee</h3>
+            <p>Lead Developer</p>
+            <small>Full-stack engineer</small>
+          </div>
+          <div class="team-card">
+            <img class="team-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=160&h=160&fit=crop&crop=face" alt="Priya" />
+            <h3>Priya Sharma</h3>
+            <p>Customer Success</p>
+            <small>Always here to help</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-band">
+        <div class="stats-inner">
+          <div class="stat-item"><strong>50K+</strong><span>Happy Customers</span></div>
+          <div class="stat-item"><strong>10K+</strong><span>Products Listed</span></div>
+          <div class="stat-item"><strong>4.9★</strong><span>Average Rating</span></div>
+          <div class="stat-item"><strong>99%</strong><span>Satisfaction Rate</span></div>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <h2>Ready to Start Shopping?</h2>
+        <p>Join 50,000+ customers who trust ShopZone for their everyday needs.</p>
+        <a href="products.html" class="btn-primary">Browse Products →</a>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <a href="index.html" class="nav-logo">🛍️ ShopZone</a>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;">
+          <a href="index.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Home</a>
+          <a href="products.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Products</a>
+          <a href="about.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">About</a>
+          <a href="contact.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Contact</a>
+          <a href="checkout.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Checkout</a>
+        </div>
+        <p>© 2026 ShopZone · Built by Deep Baidya</p>
+        <a href="#" class="back-top">↑ Top</a>
+      </div>
+    </footer>
+
+    <script>
+      window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+    </script>
+  </body>
+</html>

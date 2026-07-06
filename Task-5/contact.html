@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — ShopZone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .contact-hero {
+        background: linear-gradient(135deg, var(--accent-soft), #f3e8ff);
+        padding: 4rem 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+      .contact-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 0.5rem; }
+      .contact-hero p { color: var(--muted); font-size: 1rem; }
+
+      .contact-page { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+      .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; align-items: start; }
+
+      .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+      .info-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; display: flex; gap: 1rem; align-items: flex-start; transition: box-shadow var(--transition), transform var(--transition); }
+      .info-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+      .info-icon { font-size: 1.8rem; flex-shrink: 0; }
+      .info-text h3 { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.3rem; }
+      .info-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+      .info-text a { color: var(--accent); text-decoration: none; font-weight: 600; }
+      .info-text a:hover { text-decoration: underline; }
+
+      .social-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+      .social-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--text);
+        transition: all var(--transition);
+        background: var(--white);
+      }
+      .social-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+      .contact-form-wrap { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+      .contact-form-wrap h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1.5rem; }
+
+      .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.1rem; }
+      .form-group label { font-size: 0.82rem; font-weight: 700; color: var(--muted); }
+      .form-group input, .form-group select, .form-group textarea {
+        padding: 0.7rem 1rem;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-family: inherit;
+        outline: none;
+        transition: border-color var(--transition);
+        background: var(--bg);
+        resize: vertical;
+      }
+      .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); background: var(--white); }
+      .form-group input.error, .form-group textarea.error { border-color: var(--red); }
+
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+      .submit-btn {
+        width: 100%;
+        padding: 0.9rem;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        font-weight: 800;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background var(--transition), transform var(--transition);
+        box-shadow: 0 4px 18px rgba(99,102,241,0.3);
+      }
+      .submit-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+      .success-msg {
+        display: none;
+        background: #f0fdf4;
+        border: 1.5px solid #86efac;
+        border-radius: 10px;
+        padding: 1.2rem;
+        text-align: center;
+        color: var(--green);
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin-top: 1rem;
+      }
+      .success-msg.show { display: block; animation: fadeUp 0.3s ease; }
+
+      .faq-section { max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; }
+      .faq-section h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; }
+      .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
+      .faq-q { width: 100%; background: var(--white); border: none; padding: 1.1rem 1.3rem; text-align: left; font-size: 0.9rem; font-weight: 700; font-family: inherit; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background var(--transition); }
+      .faq-q:hover { background: var(--accent-soft); }
+      .faq-q .arrow { transition: transform 0.25s; font-size: 0.8rem; color: var(--muted); }
+      .faq-q.open .arrow { transform: rotate(180deg); }
+      .faq-a { display: none; padding: 0 1.3rem 1.1rem; font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
+      .faq-a.open { display: block; animation: fadeUp 0.2s ease; }
+
+      @media (max-width: 768px) {
+        .contact-grid { grid-template-columns: 1fr; }
+        .form-row { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header id="navbar">
+      <nav class="nav-container">
+        <a href="index.html" class="nav-logo">🛍️ ShopZone</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" style="color:var(--accent)">Contact</a></li>
+        </ul>
+        <a href="checkout.html" class="cart-toggle">🛒 Checkout</a>
+      </nav>
+    </header>
+
+    <div class="contact-hero">
+      <h1>Get in <span class="gradient-text">Touch</span></h1>
+      <p>We'd love to hear from you. Our team is always ready to help.</p>
+    </div>
+
+    <main>
+      <div class="contact-page">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="info-card">
+              <span class="info-icon">📧</span>
+              <div class="info-text">
+                <h3>Email Us</h3>
+                <p>For general inquiries and support</p>
+                <a href="mailto:support@shopzone.com">support@shopzone.com</a>
+              </div>
+            </div>
+            <div class="info-card">
+              <span class="info-icon">📞</span>
+              <div class="info-text">
+                <h3>Call Us</h3>
+                <p>Mon–Fri, 9am–6pm EST</p>
+                <a href="tel:+15550001234">+1 (555) 000-1234</a>
+              </div>
+            </div>
+            <div class="info-card">
+              <span class="info-icon">📍</span>
+              <div class="info-text">
+                <h3>Visit Us</h3>
+                <p>123 Commerce Street<br />New York, NY 10001<br />United States</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <span class="info-icon">⏰</span>
+              <div class="info-text">
+                <h3>Business Hours</h3>
+                <p>Monday – Friday: 9am – 6pm<br />Saturday: 10am – 4pm<br />Sunday: Closed</p>
+              </div>
+            </div>
+            <div>
+              <p style="font-size:0.82rem;font-weight:700;color:var(--muted);margin-bottom:0.8rem;">Follow Us</p>
+              <div class="social-links">
+                <a href="#" class="social-btn">🐦 Twitter</a>
+                <a href="#" class="social-btn">📸 Instagram</a>
+                <a href="#" class="social-btn">👍 Facebook</a>
+                <a href="#" class="social-btn">💼 LinkedIn</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-wrap">
+            <h2>✉️ Send Us a Message</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name *</label>
+                <input type="text" id="fname" placeholder="John" />
+              </div>
+              <div class="form-group">
+                <label>Last Name *</label>
+                <input type="text" id="lname" placeholder="Doe" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" id="email" placeholder="john@example.com" />
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <select id="subject">
+                <option>General Inquiry</option>
+                <option>Order Support</option>
+                <option>Returns & Refunds</option>
+                <option>Product Question</option>
+                <option>Partnership</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message *</label>
+              <textarea id="message" rows="5" placeholder="Tell us how we can help you..."></textarea>
+            </div>
+            <button class="submit-btn" onclick="submitForm()">Send Message →</button>
+            <div class="success-msg" id="success-msg">
+              ✅ Message sent! We'll get back to you within 24 hours.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-section">
+        <div class="section-header" style="text-align:left;margin-bottom:1.5rem">
+          <span class="section-tag">FAQ</span>
+          <h2 style="margin-top:0.5rem">Frequently Asked <span class="gradient-text">Questions</span></h2>
+        </div>
+        <div id="faq-list"></div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <a href="index.html" class="nav-logo">🛍️ ShopZone</a>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;">
+          <a href="index.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Home</a>
+          <a href="products.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Products</a>
+          <a href="about.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">About</a>
+          <a href="contact.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Contact</a>
+          <a href="checkout.html" style="color:var(--muted);font-size:0.82rem;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Checkout</a>
+        </div>
+        <p>© 2026 ShopZone · Built by Deep Baidya</p>
+        <a href="#" class="back-top">↑ Top</a>
+      </div>
+    </footer>
+
+    <script>
+      const faqs = [
+        { q: "How long does shipping take?", a: "Standard shipping takes 3–5 business days. Express shipping (1–2 days) is available at checkout for an additional fee." },
+        { q: "What is your return policy?", a: "We offer a 30-day hassle-free return policy. Items must be in original condition with tags attached. Simply contact us and we'll arrange a free pickup." },
+        { q: "Do you ship internationally?", a: "Yes! We ship to over 50 countries worldwide. International shipping typically takes 7–14 business days depending on the destination." },
+        { q: "How can I track my order?", a: "Once your order ships, you'll receive a tracking number via email. You can use this to track your package in real-time on our website." },
+        { q: "Is my payment information secure?", a: "Absolutely. We use 256-bit SSL encryption and never store your card details. All payments are processed through PCI-DSS compliant gateways." },
+        { q: "Can I change or cancel my order?", a: "Orders can be modified or cancelled within 1 hour of placement. After that, the order enters processing and cannot be changed. Contact us immediately if needed." },
+      ];
+
+      document.getElementById('faq-list').innerHTML = faqs.map((f, i) => `
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(${i}, this)">
+            ${f.q} <span class="arrow">▼</span>
+          </button>
+          <div class="faq-a" id="faq-a-${i}">${f.a}</div>
+        </div>
+      `).join('');
+
+      function toggleFaq(i, btn) {
+        const ans = document.getElementById(`faq-a-${i}`);
+        const isOpen = ans.classList.contains('open');
+        document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
+        if (!isOpen) { ans.classList.add('open'); btn.classList.add('open'); }
+      }
+
+      function submitForm() {
+        const fields = [
+          { id: 'fname', check: v => v.trim() },
+          { id: 'lname', check: v => v.trim() },
+          { id: 'email', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+          { id: 'message', check: v => v.trim().length >= 10 },
+        ];
+        let valid = true;
+        fields.forEach(f => {
+          const el = document.getElementById(f.id);
+          if (!f.check(el.value)) { el.classList.add('error'); valid = false; }
+          else el.classList.remove('error');
+        });
+        if (!valid) return;
+        document.getElementById('success-msg').classList.add('show');
+        ['fname','lname','email','message'].forEach(id => document.getElementById(id).value = '');
+      }
+
+      window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+    </script>
+  </body>
+</html>
