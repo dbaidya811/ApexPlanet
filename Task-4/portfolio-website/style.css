@@ -232,7 +232,7 @@ body {
 
 .mobile-menu a:hover { color: var(--accent); background: var(--accent-soft); }
 
-/* ── HERO ── */
+
 .hero-section {
   min-height: 100vh;
   display: flex;
@@ -353,7 +353,7 @@ body {
   50%       { transform: translateY(-10px); }
 }
 
-/* ── ABOUT ── */
+
 .about-section {
   background: var(--bg-alt);
   padding: 6rem 2rem;
@@ -448,7 +448,6 @@ body {
   font-weight: 600;
 }
 
-/* ── PROJECTS ── */
 .projects-section {
   padding: 6rem 2rem;
   max-width: 1200px;
@@ -568,7 +567,7 @@ body {
 .coming-soon { opacity: 0.6; }
 .coming-soon:hover { transform: none; box-shadow: var(--shadow-sm); }
 
-/* ── CONTACT ── */
+
 .contact-section {
   background: var(--bg-alt);
   padding: 6rem 2rem;
@@ -695,7 +694,7 @@ input:focus, textarea:focus {
   background: #fff;
 }
 
-/* ── FOOTER ── */
+
 footer {
   border-top: 1px solid var(--border);
   padding: 2rem;
@@ -726,7 +725,7 @@ footer {
 
 .back-top:hover { opacity: 0.7; }
 
-/* ── MEDIA QUERIES ── */
+
 @media (max-width: 1024px) {
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-section { gap: 2.5rem; }
